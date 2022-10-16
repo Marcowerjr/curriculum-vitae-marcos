@@ -1,0 +1,7 @@
+{
+  "name": "curriculum-vitae-marcos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
