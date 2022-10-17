@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header title="Perfil"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <app-header-ios title="Perfil"></app-header-ios>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-avatar>
+          <ion-img
+            id="profile_picture"
+            alt="Foto de Perfil"
+            src="/assets/img/avatar.jpg"
+            height="auto"
+          ></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col> asdasd </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
