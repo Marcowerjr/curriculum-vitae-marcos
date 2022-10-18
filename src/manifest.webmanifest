@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "Currículum Vitae Marcos",
+  "short_name": "CVM",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
