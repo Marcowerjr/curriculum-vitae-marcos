@@ -1,0 +1,16 @@
+<ion-card [color]="color">
+  <ion-card-header>
+    <ion-card-title>Contacto</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item
+      *ngFor="let item of contactItems"
+      [href]="item.link"
+      [color]="color"
+      [target]="item.target"
+    >
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      <ion-label class="ion-text-wrap">{{ item.text }}</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

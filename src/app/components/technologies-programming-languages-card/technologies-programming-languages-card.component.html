@@ -1,0 +1,10 @@
+<ion-card [color]="color">
+  <ion-card-header>
+    <ion-card-title>Tecnologías y Lenguajes de Programación</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item *ngFor="let language of languages" [color]="color">
+      <ion-label class="ion-text-wrap">{{ language }}</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
