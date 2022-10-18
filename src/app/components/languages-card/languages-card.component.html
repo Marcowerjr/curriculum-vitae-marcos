@@ -1,0 +1,14 @@
+<ion-card [color]="color">
+  <ion-card-header>
+    <ion-card-title>Idiomas</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item *ngFor="let language of languages" [color]="color">
+      <ion-label slot="start">{{ language.name }}</ion-label>
+      <ion-progress-bar
+        color="primary"
+        [value]="language.progress"
+      ></ion-progress-bar>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
