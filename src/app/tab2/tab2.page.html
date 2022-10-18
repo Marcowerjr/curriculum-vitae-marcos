@@ -1,5 +1,16 @@
-<app-header title="Formación Académica"></app-header>
+<app-header title="Formación Académica" color="tertiary"></app-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="primary" class="ion-padding">
   <app-header-ios title="Formación Académica"></app-header-ios>
+
+  <ion-card *ngFor="let grade of grades" color="secondary" class="ion-padding">
+    <ion-card-header>
+      <ion-avatar>
+        <ion-img [src]="grade.logo"></ion-img>
+      </ion-avatar>
+      <ion-card-subtitle>{{grade.subtitle}}</ion-card-subtitle>
+      <ion-card-title>{{grade.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{grade.description}} </ion-card-content>
+  </ion-card>
 </ion-content>

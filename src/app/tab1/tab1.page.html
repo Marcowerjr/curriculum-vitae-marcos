@@ -1,21 +1,11 @@
-<app-header title="Perfil"></app-header>
+<app-header title="Perfil" color="tertiary"></app-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="primary" class="ion-padding">
   <app-header-ios title="Perfil"></app-header-ios>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-avatar>
-          <ion-img
-            id="profile_picture"
-            alt="Foto de Perfil"
-            src="/assets/img/avatar.jpg"
-            height="auto"
-          ></ion-img>
-        </ion-avatar>
-      </ion-col>
-      <ion-col> asdasd </ion-col>
-    </ion-row>
-  </ion-grid>
+  <app-about-me-card color="secondary"></app-about-me-card>
+  <app-contact-card color="secondary"></app-contact-card>
+  <app-aptitudes-card color="secondary"></app-aptitudes-card>
+  <app-languages-card color="secondary"></app-languages-card>
+  <app-technologies-programming-languages-card color="secondary"></app-technologies-programming-languages-card>
 </ion-content>
