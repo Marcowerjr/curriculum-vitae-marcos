@@ -3,8 +3,14 @@
     <ion-card-title>Tecnologías y Lenguajes de Programación</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <ion-item *ngFor="let language of languages" [color]="color">
-      <ion-label class="ion-text-wrap">{{ language }}</ion-label>
-    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let language of languages" size="auto">
+          <ion-item [color]="color">
+            <ion-label class="ion-text-wrap">{{ language }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-content>
 </ion-card>
