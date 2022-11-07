@@ -3,18 +3,32 @@
 <ion-content [fullscreen]="true" color="primary" class="ion-padding">
   <app-header-ios title="Experiencia Laboral"></app-header-ios>
 
-  <ion-card *ngFor="let work of works" color="secondary" class="ion-padding">
-    <ion-card-header>
-      <ion-avatar>
-        <ion-img [src]="work.companyLogo"></ion-img>
-      </ion-avatar>
-      <ion-card-subtitle>{{work.location}}, {{work.startDate}} - {{work.endDate}}</ion-card-subtitle>
-      <ion-card-title>{{work.companyName}} - {{work.position}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item *ngFor="let description of work.description" color="secondary">
-        <ion-label class="ion-text-wrap">{{description}}</ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col *ngFor="let work of works">
+        <ion-card color="secondary" class="ion-padding" style="height: auto">
+          <ion-card-header>
+            <ion-avatar>
+              <ion-img [src]="work.companyLogo"></ion-img>
+            </ion-avatar>
+            <ion-card-subtitle
+              >{{work.location}}, {{work.startDate}} -
+              {{work.endDate}}</ion-card-subtitle
+            >
+            <ion-card-title
+              >{{work.companyName}} - {{work.position}}</ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item
+              *ngFor="let description of work.description"
+              color="secondary"
+            >
+              <ion-label class="ion-text-wrap">{{description}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

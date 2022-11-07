@@ -3,9 +3,29 @@
 <ion-content [fullscreen]="true" color="primary" class="ion-padding">
   <app-header-ios title="Perfil"></app-header-ios>
 
-  <app-about-me-card color="secondary"></app-about-me-card>
-  <app-contact-card color="secondary"></app-contact-card>
-  <app-aptitudes-card color="secondary"></app-aptitudes-card>
-  <app-languages-card color="secondary"></app-languages-card>
-  <app-technologies-programming-languages-card color="secondary"></app-technologies-programming-languages-card>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col sizeXl="3">
+        <app-about-me-card color="secondary"></app-about-me-card>
+      </ion-col>
+      <ion-col sizeXl="5">
+        <ion-row>
+          <ion-col sizeXl="12">
+            <app-contact-card color="secondary"></app-contact-card>
+            <app-aptitudes-card color="secondary"></app-aptitudes-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col sizeXl="3">
+        <ion-row>
+          <ion-col>
+            <app-languages-card color="secondary"></app-languages-card>
+            <app-technologies-programming-languages-card
+              color="secondary"
+            ></app-technologies-programming-languages-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
