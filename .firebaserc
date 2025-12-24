@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "curriculum-vitae-marcos-pwa"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }

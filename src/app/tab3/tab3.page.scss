@@ -1,12 +1,103 @@
-ion-avatar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    ion-img {
-      max-width: 300px;
-      justify-content: center;
-      margin: auto;
-      border-radius: 0%;
-    }
+.cv-content {
+  --background: var(--ion-color-primary);
+}
+
+.cv-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.experience-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+}
+
+.work-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  --background: rgba(13, 27, 42, 0.92);
+  --color: var(--ion-color-tertiary);
+  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(14px);
+}
+
+.work-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92px;
+  padding: 0.5rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.work-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.work-card ion-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 0;
+}
+
+.work-dates {
+  font-size: 0.85rem;
+  color: rgba(224, 225, 221, 0.8);
+}
+
+.work-role {
+  margin: 0;
+  font-weight: 600;
+  color: rgba(224, 225, 221, 0.8);
+}
+
+.work-description {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-description li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(224, 225, 221, 0.18);
+}
+
+.work-description li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(224, 225, 221, 0.85);
+  flex-shrink: 0;
+}
+
+.work-description li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .cv-wrapper {
+    padding: 1rem;
   }
-  
+
+  .work-logo {
+    height: 80px;
+  }
+}
