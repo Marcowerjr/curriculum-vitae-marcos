@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Marcos Currículum</string>
+    <string name="title_activity_main">Marcos Currículum</string>
+    <string name="package_name">com.marcowerjr.marcos_curriculum</string>
+    <string name="custom_url_scheme">com.marcowerjr.marcos_curriculum</string>
+</resources>

@@ -1,34 +1,23 @@
 <app-header title="Experiencia Laboral" color="tertiary"></app-header>
 
-<ion-content [fullscreen]="true" color="primary" class="ion-padding">
+<ion-content [fullscreen]="true" color="primary" class="cv-content ion-padding">
   <app-header-ios title="Experiencia Laboral"></app-header-ios>
 
-  <ion-grid>
-    <ion-row class="ion-justify-content-center ion-align-items-center">
-      <ion-col *ngFor="let work of works">
-        <ion-card color="secondary" class="ion-padding" style="height: auto">
-          <ion-card-header>
-            <ion-avatar>
-              <ion-img [src]="work.companyLogo"></ion-img>
-            </ion-avatar>
-            <ion-card-subtitle
-              >{{work.location}}, {{work.startDate}} -
-              {{work.endDate}}</ion-card-subtitle
-            >
-            <ion-card-title
-              >{{work.companyName}} - {{work.position}}</ion-card-title
-            >
-          </ion-card-header>
-          <ion-card-content>
-            <ion-item
-              *ngFor="let description of work.description"
-              color="secondary"
-            >
-              <ion-label class="ion-text-wrap">{{description}}</ion-label>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="cv-wrapper">
+    <div class="experience-grid">
+      <ion-card color="secondary" class="work-card ion-padding" *ngFor="let work of works">
+        <div class="work-logo">
+          <img [src]="work.companyLogo" [alt]="work.companyName" />
+        </div>
+        <ion-card-content>
+          <span class="work-dates">{{ work.location }} - {{ work.startDate }} a {{ work.endDate }}</span>
+          <ion-card-title>{{ work.companyName }}</ion-card-title>
+          <p class="work-role">{{ work.position }}</p>
+          <ul class="work-description">
+            <li *ngFor="let description of work.description">{{ description }}</li>
+          </ul>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
