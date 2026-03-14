@@ -1,18 +1,17 @@
-<ion-card [color]="color">
-  <ion-card-header>
-    <ion-card-title>Tecnologías y Lenguajes de Programación</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-grid>
-      <ion-row>
-        @for (language of languages; track language) {
-        <ion-col size="auto">
-          <ion-item [color]="color">
-            <ion-label class="ion-text-wrap">{{ language }}</ion-label>
-          </ion-item>
-        </ion-col>
+<article class="section-card stack-card">
+  <span class="eyebrow">Stack técnico</span>
+  <h3>{{ title }}</h3>
+
+  <div class="stack-groups">
+    @for (group of groups; track group.title) {
+    <section class="stack-group">
+      <h4>{{ group.title }}</h4>
+      <div class="stack-items">
+        @for (item of group.items; track item) {
+        <span class="badge-chip">{{ item }}</span>
         }
-      </ion-row>
-    </ion-grid>
-  </ion-card-content>
-</ion-card>
+      </div>
+    </section>
+    }
+  </div>
+</article>

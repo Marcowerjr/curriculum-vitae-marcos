@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProfileData } from '../../data/cv-data';
 
 @Component({
     selector: 'app-about-me-card',
@@ -6,12 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./about-me-card.component.scss'],
     standalone: false
 })
-export class AboutMeCardComponent implements OnInit {
-
-  @Input () color: string;
-
-  constructor() { }
-
-  ngOnInit() {}
+export class AboutMeCardComponent {
+  @Input() profile!: ProfileData;
 
 }

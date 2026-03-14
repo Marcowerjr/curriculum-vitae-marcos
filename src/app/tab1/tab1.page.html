@@ -1,31 +1,44 @@
-<app-header title="Perfil" color="tertiary"></app-header>
+<ion-content [fullscreen]="true" class="profile-page">
+  <div #pageShell class="page-shell">
+    <section class="hero-panel">
+      <div class="hero-copy section-card app-hero-glow" appScrollReveal appParallax [appParallaxFactor]="0.12" [appParallaxLimit]="34" [appParallaxZoom]="0.08" appScrollRevealOrigin="left">
+        <span class="eyebrow">Perfil profesional</span>
+        <h1>{{ profile.name }}</h1>
+        <p class="hero-headline">{{ profile.headline }}</p>
+        <p class="hero-summary">{{ profile.availability }}</p>
+        <div class="hero-badges">
+          @for (badge of profile.badges; track badge) {
+          <span class="badge-chip">{{ badge }}</span>
+          }
+        </div>
+      </div>
 
-<ion-content [fullscreen]="true" color="primary" class="ion-padding">
-  <app-header-ios title="Perfil"></app-header-ios>
+      <div class="hero-metrics float-delay" appScrollReveal appParallax [appParallaxFactor]="0.09" [appParallaxLimit]="24" [appParallaxZoom]="0.05" appScrollRevealOrigin="right" [appScrollRevealDelay]="90">
+        @for (metric of profile.metrics; track metric.label; let i = $index) {
+        <article class="metric-card" appScrollReveal appParallax [appParallaxFactor]="0.05 + (i * 0.01)" [appParallaxLimit]="18 + (i * 3)" appScrollRevealOrigin="scale" [appScrollRevealDelay]="120 + (i * 80)">
+          <strong>{{ metric.value }}</strong>
+          <span>{{ metric.label }}</span>
+        </article>
+        }
+      </div>
+    </section>
 
-  <ion-grid>
-    <ion-row class="ion-justify-content-center ion-align-items-center">
-      <ion-col sizeXl="3">
-        <app-about-me-card color="secondary"></app-about-me-card>
-      </ion-col>
-      <ion-col sizeXl="5">
-        <ion-row>
-          <ion-col sizeXl="12">
-            <app-contact-card color="secondary"></app-contact-card>
-            <app-aptitudes-card color="secondary"></app-aptitudes-card>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-      <ion-col sizeXl="3">
-        <ion-row>
-          <ion-col>
-            <app-languages-card color="secondary"></app-languages-card>
-            <app-technologies-programming-languages-card
-              color="secondary"
-            ></app-technologies-programming-languages-card>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <section class="profile-layout">
+      <div class="profile-main-column">
+        <app-about-me-card appScrollReveal appParallax [appParallaxFactor]="0.06" [appParallaxLimit]="20" [appScrollRevealDelay]="120" [profile]="profile"></app-about-me-card>
+        <app-aptitudes-card appScrollReveal appParallax [appParallaxFactor]="0.07" [appParallaxLimit]="20" appScrollRevealOrigin="scale" [appScrollRevealDelay]="170" [aptitudes]="aptitudes"></app-aptitudes-card>
+      </div>
+
+      <div class="profile-side-column">
+        <app-contact-card appScrollReveal appParallax [appParallaxFactor]="0.06" [appParallaxLimit]="20" appScrollRevealOrigin="right" [appScrollRevealDelay]="180" [items]="contactItems"></app-contact-card>
+        <app-languages-card appScrollReveal appParallax [appParallaxFactor]="0.08" [appParallaxLimit]="22" appScrollRevealOrigin="right" [appScrollRevealDelay]="240" [languages]="languages"></app-languages-card>
+      </div>
+
+      <div class="profile-stack-column" appScrollReveal appParallax [appParallaxFactor]="0.08" [appParallaxLimit]="20" [appParallaxZoom]="0.05" appScrollRevealOrigin="scale" [appScrollRevealDelay]="240">
+        <app-technologies-programming-languages-card
+          [groups]="stackGroups"
+        ></app-technologies-programming-languages-card>
+      </div>
+    </section>
+  </div>
 </ion-content>

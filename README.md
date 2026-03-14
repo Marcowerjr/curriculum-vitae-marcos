@@ -1,6 +1,6 @@
 # Curriculum Vitae de Marcos Caballero
 
-Versión actual: 2.0.0
+Versión actual: 2.1.0
 
 Hola, soy Marcos Caballero Fernández y este repositorio contiene la versión digital de mi curriculum. Lo construí con Angular e Ionic para mostrar mi trayectoria profesional en la web y, gracias al soporte de Capacitor, también puedo empaquetarlo como aplicación nativa o PWA.
 
@@ -8,7 +8,8 @@ Hola, soy Marcos Caballero Fernández y este repositorio contiene la versión di
 
 - Diseño responsivo con Ionic, afinado para pantallas móviles y escritorio.
 - Navegación por pestañas que separa mi perfil, formación académica y experiencia laboral.
-- Componentes reutilizables (tarjetas, encabezados, listas) que me facilitan mantener el contenido actualizado.
+- Arquitectura basada en una sola fuente de datos tipada para mantener el CV sin duplicación de contenido.
+- Componentes reutilizables que consumen entradas y permiten rediseñar o reorganizar secciones con cambios mínimos.
 - Preparación PWA con @angular/service-worker y una build compatible con Capacitor.
 
 ## Stack
@@ -61,9 +62,9 @@ La configuración fue migrada al builder moderno de Angular, pero manteniendo la
 npm run build
 ```
 
-Angular genera la salida optimizada en dist/curriculum-vitae-marcos. Para publicarla como PWA solo tengo que servir ese directorio en un hosting estático (Firebase, Netlify, Vercel, GitHub Pages, etc.).
+En esta versión, la build principal del proyecto se emite en `www/`, que es la carpeta que consume Capacitor y la que también puedo publicar como sitio estático en Firebase, Netlify, Vercel o GitHub Pages.
 
-En esta versión, la build principal del proyecto se sigue emitiendo en `www/`, que es la carpeta que consume Capacitor. Si necesito una publicación web estática, puedo desplegar directamente ese directorio generado por `npm run build`.
+Si necesito revisar el artefacto final para despliegue web, el directorio correcto después de `npm run build` es `www/`.
 
 ## Empaquetado con Capacitor
 
@@ -89,7 +90,7 @@ Sigo la documentación oficial de Capacitor para firma y publicación.
 
 ### Versiones actualizadas
 
-- Versión del proyecto: 2.0.0
+- Versión del proyecto: 2.1.0
 - Angular CLI y Angular framework: 21.2.x
 - Ionic Angular: 8.8.1
 - Capacitor core y Android: 8.2.0
@@ -98,16 +99,19 @@ Sigo la documentación oficial de Capacitor para firma y publicación.
 
 ## Estructura que consulto con frecuencia
 
-- src/app/components: tarjetas y encabezados reutilizables para mi perfil, aptitudes, idiomas y tecnologías.
+- src/app/data/cv-data.ts: fuente central de contenido del CV, con interfaces tipadas para perfil, contacto, idiomas, stack, formación y experiencia.
+- src/app/components: tarjetas reutilizables que reciben datos por inputs y renderizan las distintas secciones.
 - src/app/tab1, tab2, tab3: páginas para Perfil, Formación Académica y Experiencia Laboral.
+- src/global.scss y src/theme/variables.scss: tokens visuales, tipografía, superficies y paleta global.
 - src/assets/img: logos e imágenes que uso en las tarjetas.
 - www/: artefactos listos para producción generados por Ionic/Capacitor (se regeneran con npm run build).
 
 ## Cómo personalizo el contenido
 
-- Actualizo los textos directamente en los componentes de src/app/components y en cada pestaña.
-- Ajusto colores y tipografías en src/theme y src/global.scss.
-- Agrego íconos o logos en src/assets y los referencio desde los componentes.
+- Actualizo el contenido principal en src/app/data/cv-data.ts.
+- Ajusto colores, tipografías, superficies y espaciados en src/theme/variables.scss y src/global.scss.
+- Si necesito cambiar la presentación de una sección, modifico el componente correspondiente en src/app/components o la composición de cada pestaña en src/app/tab1, src/app/tab2 y src/app/tab3.
+- Agrego íconos o logos en src/assets y los referencio desde la data o desde los componentes.
 
 ## Automatizaciones para Android
 
@@ -126,7 +130,7 @@ Después vuelvo a sincronizar con `npm run android:prepare`.
 ## Flujo de despliegue
 
 1. Ejecuto npm run build -- --configuration production para obtener una build optimizada.
-2. Reviso `www/`, que sigue siendo la salida usada por la app y por Capacitor.
+2. Reviso `www/`, que sigue siendo la salida usada por la app, por Capacitor y por cualquier despliegue estático.
 3. Publico en el hosting que corresponda o sincronizo con Capacitor antes de subir a tiendas.
 
 ## Licencia

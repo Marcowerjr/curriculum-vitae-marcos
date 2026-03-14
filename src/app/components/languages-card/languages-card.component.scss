@@ -1,0 +1,50 @@
+.languages-card {
+	display: grid;
+	gap: 1rem;
+}
+
+.languages-card h3 {
+	margin: 0;
+	font-size: 1.3rem;
+}
+
+.language-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.language-item {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.language-top {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: center;
+}
+
+.language-top strong {
+	color: var(--app-heading);
+}
+
+.language-top span,
+.language-item small {
+	color: var(--app-muted);
+}
+
+.language-bar {
+	width: 100%;
+	height: 10px;
+	border-radius: 999px;
+	overflow: hidden;
+	background: var(--app-progress-track);
+}
+
+.language-bar span {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(90deg, var(--app-heading), var(--app-accent));
+}

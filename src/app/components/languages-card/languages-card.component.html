@@ -1,16 +1,19 @@
-<ion-card [color]="color">
-  <ion-card-header>
-    <ion-card-title>Idiomas</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    @for (language of languages; track language) {
-    <ion-item [color]="color">
-      <ion-label slot="start">{{ language.name }}</ion-label>
-      <ion-progress-bar
-        color="primary"
-        [value]="language.progress"
-      ></ion-progress-bar>
-    </ion-item>
+<article class="section-card languages-card">
+  <span class="eyebrow">Comunicación</span>
+  <h3>{{ title }}</h3>
+
+  <div class="language-list">
+    @for (language of languages; track language.name) {
+    <div class="language-item">
+      <div class="language-top">
+        <strong>{{ language.name }}</strong>
+        <span>{{ language.level }}</span>
+      </div>
+      <div class="language-bar">
+        <span [style.width.%]="language.progress * 100"></span>
+      </div>
+      <small>{{ language.note }}</small>
+    </div>
     }
-  </ion-card-content>
-</ion-card>
+  </div>
+</article>

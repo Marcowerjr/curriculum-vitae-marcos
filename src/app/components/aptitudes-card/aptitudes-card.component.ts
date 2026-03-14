@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-aptitudes-card',
@@ -6,20 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./aptitudes-card.component.scss'],
     standalone: false
 })
-export class AptitudesCardComponent implements OnInit {
-  @Input() color: string;
-
-  aptitudes = [
-    'Organización',
-    'Iniciativa',
-    'Trabajo en equipo',
-    'Responsabilidad',
-    'Atención al detalle',
-    'Simpático',
-    'Mente proactiva',
-  ];
-
-  constructor() {}
-
-  ngOnInit() {}
+export class AptitudesCardComponent {
+  @Input() title = 'Aptitudes';
+  @Input() aptitudes: string[] = [];
 }

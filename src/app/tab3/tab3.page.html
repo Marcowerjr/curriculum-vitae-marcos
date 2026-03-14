@@ -1,30 +1,51 @@
-<app-header title="Experiencia Laboral" color="tertiary"></app-header>
+<ion-content [fullscreen]="true" class="experience-page">
+  <div #pageShell class="page-shell">
+    <section class="experience-hero section-card app-hero-glow" appScrollReveal>
+      <div appParallax [appParallaxFactor]="0.14" [appParallaxLimit]="36" [appParallaxZoom]="0.08">
+        <span class="eyebrow">Experiencia laboral</span>
+        <h1>Trayectoria orientada a backend, negocio y entrega continua.</h1>
+        <p>
+          He trabajado en ERP, factoraje, logística, almacenes, aplicaciones web,
+          móviles y automatización de procesos, con foco en impacto funcional y
+          estabilidad operativa.
+        </p>
+      </div>
+    </section>
 
-<ion-content [fullscreen]="true" color="primary" class="cv-content ion-padding">
-  <app-header-ios title="Experiencia Laboral"></app-header-ios>
-
-  <div class="cv-wrapper">
-    <div class="experience-grid">
-      @for (work of works; track work) {
-      <ion-card color="secondary" class="work-card ion-padding">
-        <div class="work-logo">
-          <img [src]="work.companyLogo" [alt]="work.companyName" />
-        </div>
-        <ion-card-content>
-          <span class="work-dates"
-            >{{ work.location }} - {{ work.startDate }} a {{ work.endDate
-            }}</span
-          >
-          <ion-card-title>{{ work.companyName }}</ion-card-title>
-          <p class="work-role">{{ work.position }}</p>
-          <ul class="work-description">
-            @for (description of work.description; track description) {
-            <li>{{ description }}</li>
+    <section class="timeline-grid">
+      @for (work of works; track work.role + work.company; let i = $index) {
+      <article class="experience-card section-card" appScrollReveal appParallax [appParallaxFactor]="0.1 + (i * 0.015)" [appParallaxLimit]="24 + (i * 3)" [appParallaxZoom]="0.07" [appScrollRevealDelay]="90 + (i * 85)">
+        <div class="experience-card-top">
+          <div class="experience-brand" [class.is-monogram]="!work.logo">
+            @if (work.logo) {
+            <img [src]="work.logo" [alt]="work.company" />
+            } @else {
+            <span>{{ work.monogram }}</span>
             }
-          </ul>
-        </ion-card-content>
-      </ion-card>
+          </div>
+
+          <div class="experience-heading">
+            <span class="eyebrow">{{ work.period }}</span>
+            <h2>{{ work.role }}</h2>
+            <p>{{ work.company }} · {{ work.location }}</p>
+          </div>
+        </div>
+
+        <p class="experience-summary">{{ work.summary }}</p>
+
+        <div class="stack-chips">
+          @for (item of work.stack; track item) {
+          <span class="badge-chip">{{ item }}</span>
+          }
+        </div>
+
+        <ul class="experience-list">
+          @for (highlight of work.highlights; track highlight) {
+          <li>{{ highlight }}</li>
+          }
+        </ul>
+      </article>
       }
-    </div>
+    </section>
   </div>
 </ion-content>

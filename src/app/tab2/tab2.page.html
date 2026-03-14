@@ -1,24 +1,57 @@
-<app-header title="Formación Académica" color="tertiary"></app-header>
+<ion-content [fullscreen]="true" class="education-page">
+  <div #pageShell class="page-shell">
+    <section class="page-intro section-card app-hero-glow" appScrollReveal>
+      <span class="eyebrow">Formación académica</span>
+      <h1>Base técnica sólida y desempeño académico consistente.</h1>
+      <p>
+        Mi formación combina ingeniería de software, desarrollo multiplataforma
+        y ejecución de proyectos integradores con alto desempeño académico.
+      </p>
+    </section>
 
-<ion-content [fullscreen]="true" color="primary" class="ion-padding">
-  <app-header-ios title="Formación Académica"></app-header-ios>
+    <section class="education-layout">
+      <div class="education-column">
+        @for (grade of grades; track grade.title; let i = $index) {
+        <article class="education-card section-card" appScrollReveal appParallax [appParallaxFactor]="0.1 + (i * 0.015)" [appParallaxLimit]="24 + (i * 4)" [appParallaxZoom]="0.07" [appScrollRevealDelay]="90 + (i * 90)">
+          <div class="education-logo">
+            <img [src]="grade.logo" [alt]="grade.institution" />
+          </div>
+          <div class="education-content">
+            <span class="eyebrow">{{ grade.period }}</span>
+            <h2>{{ grade.title }}</h2>
+            <p class="education-meta">{{ grade.institution }} · {{ grade.location }}</p>
+            <p class="education-summary">{{ grade.summary }}</p>
+            <ul class="education-achievements">
+              @for (achievement of grade.achievements; track achievement) {
+              <li>{{ achievement }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+        }
+      </div>
 
-  <ion-grid>
-    <ion-row>
-      @for (grade of grades; track grade) {
-      <ion-col>
-        <ion-card color="secondary" class="ion-padding">
-          <ion-card-header>
-            <ion-avatar>
-              <ion-img [src]="grade.logo"></ion-img>
-            </ion-avatar>
-            <ion-card-subtitle>{{grade.subtitle}}</ion-card-subtitle>
-            <ion-card-title>{{grade.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content> {{grade.description}} </ion-card-content>
-        </ion-card>
-      </ion-col>
-      }
-    </ion-row>
-  </ion-grid>
+      <aside class="education-side-column">
+        <article class="section-card insight-card" appScrollReveal appParallax [appParallaxFactor]="0.09" [appParallaxLimit]="22" [appParallaxZoom]="0.06" appScrollRevealOrigin="right" [appScrollRevealDelay]="170">
+          <span class="eyebrow">Fortalezas profesionales</span>
+          <h3>Cómo traduzco mi formación a ejecución real</h3>
+          <div class="insight-chips">
+            @for (aptitude of aptitudes; track aptitude) {
+            <span class="badge-chip">{{ aptitude }}</span>
+            }
+          </div>
+        </article>
+
+        <article class="section-card insight-card" appScrollReveal appParallax [appParallaxFactor]="0.1" [appParallaxLimit]="24" [appParallaxZoom]="0.07" appScrollRevealOrigin="scale" [appScrollRevealDelay]="240">
+          <span class="eyebrow">Información adicional</span>
+          <h3>Ritmo de aprendizaje y adaptación</h3>
+          <ul class="insight-list">
+            @for (item of additionalInfo; track item) {
+            <li>{{ item }}</li>
+            }
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </div>
 </ion-content>

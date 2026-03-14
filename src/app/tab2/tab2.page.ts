@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { createAnimation } from '@ionic/angular';
+import { cvData } from '../data/cv-data';
 
 @Component({
     selector: 'app-tab2',
@@ -7,26 +9,41 @@ import { Component } from '@angular/core';
     standalone: false
 })
 export class Tab2Page {
-  grades = [
-    {
-      title:
-        'Licenciatura en Ingeniería en Desarrollo de Software: Desarrollo y Gestión de Software',
-      subtitle:
-        'Universidad Tecnológica de Chihuahua - Chihuahua, CHH, En curso',
-      logo: 'assets/img/escudo.webp',
-      description:
-        ' Estudios no finalizados en Desarrollo y Gestión de Software en Universidad Tecnológica de Chihuahua',
-    },
-    {
-      title:
-        'Grado Técnico Superior en Desarrollo de Software: Desarrollo de software multiplataforma',
-      subtitle:
-        'Universidad Tecnológica de Chihuahua - Chihuahua, CHH, Agosto del 2021',
-      logo: 'assets/img/escudo.webp',
-      description:
-        'Promedio general de 10, dos proyectos integradores realizados con 10 de calificación',
-    },
-  ];
+  @ViewChild('pageShell', { read: ElementRef })
+  pageShell?: ElementRef<HTMLElement>;
+
+  grades = cvData.education;
+  aptitudes = cvData.aptitudes;
+  additionalInfo = cvData.additionalInfo;
 
   constructor() {}
+
+  ionViewWillEnter() {
+    requestAnimationFrame(() => {
+      this.runEnterAnimation();
+    });
+  }
+
+  private runEnterAnimation() {
+    const pageShell = this.pageShell?.nativeElement;
+
+    if (!pageShell) {
+      return;
+    }
+
+    createAnimation()
+      .addElement(pageShell)
+      .beforeStyles({
+        opacity: '0.01',
+        transform: 'translate3d(0, 18px, 0) scale(0.992)',
+        filter: 'blur(8px)',
+      })
+      .afterClearStyles(['opacity', 'transform', 'filter'])
+      .duration(580)
+      .easing('cubic-bezier(0.22, 1, 0.36, 1)')
+      .fromTo('opacity', '0.01', '1')
+      .fromTo('transform', 'translate3d(0, 18px, 0) scale(0.992)', 'translate3d(0, 0, 0) scale(1)')
+      .fromTo('filter', 'blur(8px)', 'blur(0px)')
+      .play();
+  }
 }

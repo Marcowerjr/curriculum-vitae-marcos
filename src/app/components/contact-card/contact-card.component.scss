@@ -1,0 +1,62 @@
+.contact-card {
+	display: grid;
+	gap: 0.95rem;
+}
+
+.contact-card h3 {
+	margin: -0.1rem 0 0.35rem;
+	font-size: 1.3rem;
+}
+
+.contact-list {
+	display: grid;
+	gap: 0.8rem;
+}
+
+.contact-item {
+	display: grid;
+	grid-template-columns: 52px minmax(0, 1fr);
+	gap: 0.85rem;
+	align-items: start;
+	text-decoration: none;
+	color: inherit;
+	padding: 0.9rem;
+	border-radius: 18px;
+	background: var(--app-subtle-surface);
+	transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item:hover {
+	transform: translateY(-2px);
+	background: var(--app-subtle-surface-hover);
+	box-shadow: var(--app-shadow);
+}
+
+.contact-icon {
+	display: grid;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border-radius: 16px;
+	background: var(--app-icon-gradient);
+	color: white;
+}
+
+.contact-icon ion-icon {
+	font-size: 1.35rem;
+}
+
+.contact-copy {
+	display: grid;
+	gap: 0.2rem;
+}
+
+.contact-copy strong {
+	color: var(--app-heading);
+}
+
+.contact-copy span,
+.contact-copy small {
+	color: var(--app-muted);
+	line-height: 1.5;
+}

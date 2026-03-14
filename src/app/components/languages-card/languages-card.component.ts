@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { LanguageItem } from '../../data/cv-data';
 
 @Component({
     selector: 'app-languages-card',
@@ -6,21 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./languages-card.component.scss'],
     standalone: false
 })
-export class LanguagesCardComponent implements OnInit {
-  @Input() color: string;
-
-  languages = [
-    {
-      name: 'Español',
-      progress: 1,
-    },
-    {
-      name: 'Inglés',
-      progress: 0.9,
-    },
-  ];
-
-  constructor() {}
-
-  ngOnInit() {}
+export class LanguagesCardComponent {
+  @Input() title = 'Idiomas';
+  @Input() languages: LanguageItem[] = [];
 }

@@ -8,6 +8,8 @@ import { AboutMeCardComponent } from './about-me-card/about-me-card.component';
 import { AptitudesCardComponent } from './aptitudes-card/aptitudes-card.component';
 import { LanguagesCardComponent } from './languages-card/languages-card.component';
 import { TechnologiesProgrammingLanguagesCardComponent } from './technologies-programming-languages-card/technologies-programming-languages-card.component';
+import { ParallaxDirective } from './parallax.directive';
+import { ScrollRevealDirective } from './scroll-reveal.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { TechnologiesProgrammingLanguagesCardComponent } from './technologies-pr
     AptitudesCardComponent,
     LanguagesCardComponent,
     TechnologiesProgrammingLanguagesCardComponent,
+    ParallaxDirective,
+    ScrollRevealDirective,
   ],
   exports: [
     HeaderComponent,
@@ -27,6 +31,8 @@ import { TechnologiesProgrammingLanguagesCardComponent } from './technologies-pr
     AptitudesCardComponent,
     LanguagesCardComponent,
     TechnologiesProgrammingLanguagesCardComponent,
+    ParallaxDirective,
+    ScrollRevealDirective,
   ],
   imports: [CommonModule, IonicModule],
 })

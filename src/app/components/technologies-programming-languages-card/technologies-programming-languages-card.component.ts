@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { StackGroup } from '../../data/cv-data';
 
 @Component({
     selector: 'app-technologies-programming-languages-card',
@@ -6,40 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./technologies-programming-languages-card.component.scss'],
     standalone: false
 })
-export class TechnologiesProgrammingLanguagesCardComponent implements OnInit {
-  @Input() color: string;
-
-  languages = [
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'React Native',
-    'Angular',
-    'Ionic',
-    'Node.js',
-    'C#',
-    'Java',
-    'Python',
-    'Django',
-    'HTML',
-    'CSS',
-    'NoSQL',
-    'SQL',
-    'Git',
-    'GitHub',
-    'Firebase',
-    'MongoDB',
-    'MySQL',
-    'PostgreSQL',
-    'Docker',
-    'Linux',
-    'Windows',
-    'MacOS',
-    'Flutter',
-    'Dart',
-  ];
-
-  constructor() {}
-
-  ngOnInit() {}
+export class TechnologiesProgrammingLanguagesCardComponent {
+  @Input() title = 'Tecnologías y herramientas';
+  @Input() groups: StackGroup[] = [];
 }

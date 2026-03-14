@@ -1,14 +1,9 @@
-<ion-card [color]="color">
-  <ion-card-header>
-    <ion-card-title>Aptitudes</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
+<article class="section-card skills-card">
+  <span class="eyebrow">Perfil de trabajo</span>
+  <h3>{{ title }}</h3>
+  <div class="skills-grid">
     @for (aptitude of aptitudes; track aptitude) {
-    <ion-item [color]="color">
-      <ion-label class="ion-text-wrap">
-        {{ aptitude }}
-      </ion-label>
-    </ion-item>
+    <span class="skill-pill">{{ aptitude }}</span>
     }
-  </ion-card-content>
-</ion-card>
+  </div>
+</article>

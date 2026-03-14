@@ -1,16 +1,21 @@
-<ion-card [color]="color" class="ion-padding">
-  <ion-avatar>
-    <ion-img id="profile_picture" alt="Foto de Perfil" src="/assets/img/avatar.jpg"></ion-img>
-  </ion-avatar>
-  <ion-card-header>
-    <ion-card-subtitle>Pequeña descripción sobre mi</ion-card-subtitle>
-    <ion-card-title>Marcos Caballero Fernández</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    Ingeniero en Desarrollo y Gestión de Software, con experiencia como desarrollador de software en busca de
-    oportunidades para trabajar en las áreas de desarrollo de software back end y front end.
-    Excelente habilidad de comunicación escrita y capaz de administrar, diseñar, desarrollar, controlar y
-    solucionar planes, proyectos y problemas, así como tener un gran desempeño que me permita desarrollarme de
-    manera profesional y personal.
-  </ion-card-content>
-</ion-card>
+<article class="section-card about-card">
+  <div class="about-header">
+    <ion-avatar>
+      <ion-img [alt]="profile.name" [src]="profile.avatar"></ion-img>
+    </ion-avatar>
+
+    <div class="about-heading">
+      <span class="eyebrow">Resumen ejecutivo</span>
+      <h2>{{ profile.name }}</h2>
+      <p>{{ profile.location }}</p>
+    </div>
+  </div>
+
+  <p class="about-summary">{{ profile.summary }}</p>
+
+  <ul class="focus-list">
+    @for (item of profile.focusAreas; track item) {
+    <li>{{ item }}</li>
+    }
+  </ul>
+</article>
