@@ -5,19 +5,26 @@
 
   <div class="cv-wrapper">
     <div class="experience-grid">
-      <ion-card color="secondary" class="work-card ion-padding" *ngFor="let work of works">
+      @for (work of works; track work) {
+      <ion-card color="secondary" class="work-card ion-padding">
         <div class="work-logo">
           <img [src]="work.companyLogo" [alt]="work.companyName" />
         </div>
         <ion-card-content>
-          <span class="work-dates">{{ work.location }} - {{ work.startDate }} a {{ work.endDate }}</span>
+          <span class="work-dates"
+            >{{ work.location }} - {{ work.startDate }} a {{ work.endDate
+            }}</span
+          >
           <ion-card-title>{{ work.companyName }}</ion-card-title>
           <p class="work-role">{{ work.position }}</p>
           <ul class="work-description">
-            <li *ngFor="let description of work.description">{{ description }}</li>
+            @for (description of work.description; track description) {
+            <li>{{ description }}</li>
+            }
           </ul>
         </ion-card-content>
       </ion-card>
+      }
     </div>
   </div>
 </ion-content>

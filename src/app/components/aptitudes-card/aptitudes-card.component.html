@@ -3,10 +3,12 @@
     <ion-card-title>Aptitudes</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <ion-item *ngFor="let aptitude of aptitudes" [color]="color">
+    @for (aptitude of aptitudes; track aptitude) {
+    <ion-item [color]="color">
       <ion-label class="ion-text-wrap">
         {{ aptitude }}
       </ion-label>
     </ion-item>
+    }
   </ion-card-content>
 </ion-card>

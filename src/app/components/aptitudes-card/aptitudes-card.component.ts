@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-aptitudes-card',
-  templateUrl: './aptitudes-card.component.html',
-  styleUrls: ['./aptitudes-card.component.scss'],
+    selector: 'app-aptitudes-card',
+    templateUrl: './aptitudes-card.component.html',
+    styleUrls: ['./aptitudes-card.component.scss'],
+    standalone: false
 })
 export class AptitudesCardComponent implements OnInit {
   @Input() color: string;

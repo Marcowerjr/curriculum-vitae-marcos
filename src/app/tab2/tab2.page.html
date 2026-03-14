@@ -5,7 +5,8 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let grade of grades">
+      @for (grade of grades; track grade) {
+      <ion-col>
         <ion-card color="secondary" class="ion-padding">
           <ion-card-header>
             <ion-avatar>
@@ -17,6 +18,7 @@
           <ion-card-content> {{grade.description}} </ion-card-content>
         </ion-card>
       </ion-col>
+      }
     </ion-row>
   </ion-grid>
 </ion-content>

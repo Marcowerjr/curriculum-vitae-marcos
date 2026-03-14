@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-technologies-programming-languages-card',
-  templateUrl: './technologies-programming-languages-card.component.html',
-  styleUrls: ['./technologies-programming-languages-card.component.scss'],
+    selector: 'app-technologies-programming-languages-card',
+    templateUrl: './technologies-programming-languages-card.component.html',
+    styleUrls: ['./technologies-programming-languages-card.component.scss'],
+    standalone: false
 })
 export class TechnologiesProgrammingLanguagesCardComponent implements OnInit {
   @Input() color: string;

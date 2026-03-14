@@ -11,16 +11,19 @@ Hola, soy Marcos Caballero Fernández y este repositorio contiene la versión di
 
 ## Stack
 
-- Angular 17
-- Ionic Angular 8
-- Capacitor 8
-- TypeScript 5
+- Angular 21
+- Ionic Angular 8.8
+- Capacitor 8.2
+- TypeScript 5.9
 - RxJS 7
+- Zone.js 0.16
 
 ## Requisitos previos
 
-- Node.js 18.13 o superior (recomiendo la LTS más reciente).
-- npm 9 o superior (incluido con Node.js).
+- Node.js 22 o superior.
+- npm 10 o superior.
+
+La combinación actual de Angular 21 y Capacitor CLI 8.2 queda validada con Node.js 22+.
 
 Puedo validar las versiones ejecutando:
 
@@ -43,6 +46,8 @@ npm start
 
 Este comando levanta ng serve en <http://localhost:4200/> con recarga en vivo.
 
+La configuración fue migrada al builder moderno de Angular, pero manteniendo la salida web en `www/` para no romper el flujo con Capacitor.
+
 ### Calidad
 
 - npm run lint: ejecuta las reglas de ESLint configuradas para el proyecto.
@@ -55,6 +60,8 @@ npm run build
 ```
 
 Angular genera la salida optimizada en dist/curriculum-vitae-marcos. Para publicarla como PWA solo tengo que servir ese directorio en un hosting estático (Firebase, Netlify, Vercel, GitHub Pages, etc.).
+
+En esta versión, la build principal del proyecto se sigue emitiendo en `www/`, que es la carpeta que consume Capacitor. Si necesito una publicación web estática, puedo desplegar directamente ese directorio generado por `npm run build`.
 
 ## Empaquetado con Capacitor
 
@@ -77,6 +84,14 @@ Angular genera la salida optimizada en dist/curriculum-vitae-marcos. Para public
    ```
 
 Sigo la documentación oficial de Capacitor para firma y publicación.
+
+### Versiones actualizadas
+
+- Angular CLI y Angular framework: 21.2.x
+- Ionic Angular: 8.8.1
+- Capacitor core y Android: 8.2.0
+- Plugins Capacitor (`app`, `haptics`, `keyboard`, `status-bar`): 8.0.1
+- TypeScript: 5.9.3
 
 ## Estructura que consulto con frecuencia
 
@@ -108,7 +123,7 @@ Después vuelvo a sincronizar con `npm run android:prepare`.
 ## Flujo de despliegue
 
 1. Ejecuto npm run build -- --configuration production para obtener una build optimizada.
-2. Reviso dist/curriculum-vitae-marcos o www según el destino.
+2. Reviso `www/`, que sigue siendo la salida usada por la app y por Capacitor.
 3. Publico en el hosting que corresponda o sincronizo con Capacitor antes de subir a tiendas.
 
 ## Licencia
