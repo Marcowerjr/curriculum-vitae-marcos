@@ -1,5 +1,7 @@
 # Curriculum Vitae de Marcos Caballero
 
+Versión actual: 2.0.0
+
 Hola, soy Marcos Caballero Fernández y este repositorio contiene la versión digital de mi curriculum. Lo construí con Angular e Ionic para mostrar mi trayectoria profesional en la web y, gracias al soporte de Capacitor, también puedo empaquetarlo como aplicación nativa o PWA.
 
 ## Qué incluye
@@ -87,6 +89,7 @@ Sigo la documentación oficial de Capacitor para firma y publicación.
 
 ### Versiones actualizadas
 
+- Versión del proyecto: 2.0.0
 - Angular CLI y Angular framework: 21.2.x
 - Ionic Angular: 8.8.1
 - Capacitor core y Android: 8.2.0
